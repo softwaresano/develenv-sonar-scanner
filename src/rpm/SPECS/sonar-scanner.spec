@@ -38,7 +38,6 @@ rm -rf $RPM_BUILD_ROOT
 SONAR_VERSION=%{sonar_version}
 %{__mkdir_p} $RPM_BUILD_ROOT/%{sonar_home}
 
-cp -R %{_sourcedir}/* $RPM_BUILD_ROOT/%{target_dir}
 cd $RPM_BUILD_ROOT
 mkdir build
 cd build
@@ -48,7 +47,6 @@ cd sonar-scanner-${SONAR_VERSION}-linux
 rm -rf jre
 sed -i 's:use_embedded_jre=true:use_embedded_jre=false:g' bin/sonar-scanner
 sed -i '2i [[ "$SONAR_SCANNER_OPTS" == ""  ]] && SONAR_SCANNER_OPTS="--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"' bin/sonar-scanner
-#/opt/ss/develenv/platform/sonar-scanner/bin/sonar-scanner
 cd ../../
 mv build/sonar-scanner-${SONAR_VERSION}-linux/* $RPM_BUILD_ROOT/%{sonar_home}/
 rm -rf build 
