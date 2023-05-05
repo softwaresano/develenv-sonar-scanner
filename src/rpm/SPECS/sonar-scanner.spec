@@ -46,7 +46,7 @@ unzip sonar-scanner-cli-${SONAR_VERSION}-linux.zip
 cd sonar-scanner-${SONAR_VERSION}-linux
 rm -rf jre
 sed -i 's:use_embedded_jre=true:use_embedded_jre=false:g' bin/sonar-scanner
-sed -i '2i SONAR_SCANNER_OPTS="--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED ${SONAR_SCANNER_OPTS}"' bin/sonar-scanner
+sed -i 's#exec "$java_cmd" #exec "$java_cmd" --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED #' bin/sonar-scanner
 cd ../../
 mv build/sonar-scanner-${SONAR_VERSION}-linux/* $RPM_BUILD_ROOT/%{sonar_home}/
 rm -rf build 
