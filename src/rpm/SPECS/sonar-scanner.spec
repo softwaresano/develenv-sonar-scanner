@@ -49,10 +49,12 @@ sed -i 's:use_embedded_jre=true:use_embedded_jre=false:g' bin/sonar-scanner
 sed -i 's#exec "$java_cmd" #exec "$java_cmd" --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED #' bin/sonar-scanner
 cd ../../
 mv build/sonar-scanner-${SONAR_VERSION}-linux/* $RPM_BUILD_ROOT/%{sonar_home}/
-rm -rf build 
+rm -rf build
+rsync -arv %{_sourcedir}/* $RPM_BUILD_ROOT/%{target_dir}
 mkdir -p $RPM_BUILD_ROOT/usr/bin
 ln -sf %{sonar_home}/bin/sonar-scanner $RPM_BUILD_ROOT/usr/bin/sonar-scanner
 ln -sf %{sonar_home}/bin/sonar-scanner-debug $RPM_BUILD_ROOT/usr/bin/sonar-scanner-debug
+ln -sf %{sonar_home}/bin/sonar-copy-project.sh $RPM_BUILD_ROOT/usr/bin/sonar-copy-project.sh
 mkdir -p $RPM_BUILD_ROOT/etc
 ln -sf %{sonar_home}/conf $RPM_BUILD_ROOT/etc/%{package_name}
 
