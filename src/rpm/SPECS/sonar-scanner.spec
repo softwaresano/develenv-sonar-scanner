@@ -1,4 +1,4 @@
-%define sonar_version 4.8.0.2856
+%define sonar_version %(grep -A1 "<artifactId>sonar-scanner-cli</artifactId>" pom.xml|tail -1|grep -Po --color=no "(?<=<version>).*(?=<)")
 Name:        sonar-scanner
 Version:     %{versionModule}
 Release:     %{sonar_version}.r%{releaseModule}
