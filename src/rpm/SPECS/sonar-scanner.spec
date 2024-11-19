@@ -41,7 +41,7 @@ SONAR_VERSION=%{sonar_version}
 cd $RPM_BUILD_ROOT
 mkdir build
 cd build
-curl -L -k -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_VERSION}-linux.zip
+curl -L -k -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_VERSION}-linux-x64.zip
 unzip sonar-scanner-cli-${SONAR_VERSION}-linux.zip
 cd sonar-scanner-${SONAR_VERSION}-linux
 rm -rf jre
