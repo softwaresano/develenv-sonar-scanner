@@ -42,8 +42,8 @@ cd $RPM_BUILD_ROOT
 mkdir build
 cd build
 curl -L -k -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_VERSION}.zip
-unzip sonar-scanner-cli-${SONAR_VERSION}-linux.zip
-cd sonar-scanner-${SONAR_VERSION}-linux
+unzip sonar-scanner-cli-${SONAR_VERSION}.zip
+cd sonar-scanner-${SONAR_VERSION}
 rm -rf jre
 sed -i 's:use_embedded_jre=true:use_embedded_jre=false:g' bin/sonar-scanner
 sed -i 's#exec "$java_cmd" #exec "$java_cmd" --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED #' bin/sonar-scanner
