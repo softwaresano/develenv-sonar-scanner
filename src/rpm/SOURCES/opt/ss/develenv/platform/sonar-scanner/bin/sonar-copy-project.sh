@@ -19,6 +19,4 @@ if [[ -f target/reports/rake/coverage.xml ]]; then
   sed -i "s#${jenkins_workspace}#${PWD}#g" target/reports/rake/.resultset.json
 fi
 mkdir -p target/logs
-sonar-scanner -Dsonar.host.url=http://cdn-metrics.cdn.hi.inet 2>&1 |tee target/logs/sonar.log
-
-
+sonar-scanner -Dsonar.host.url=http://cdn-metrics-center.cdn.hi.inet 2>&1 | tee target/logs/sonar.log
