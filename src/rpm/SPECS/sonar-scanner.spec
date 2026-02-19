@@ -10,7 +10,7 @@ Packager:    softwaresano.com
 URL:         https://www.sonarqube.org/
 BuildArch:   x86_64
 BuildRoot:   %{_topdir}/BUILDROOT
-Requires:    java-17-openjdk
+Requires:    java-21-openjdk
 AutoReqProv: no
 
 Vendor:      softwaresano
